@@ -24,3 +24,20 @@ d.	change/overwrite the 'index' and 'document_type' for Feature, Scenario, Step,
 
 ### Cons
 1.	Details of failures like assertion failures/stacktrace (screenshots in case of selenium) not available. 
+
+### Kibana Dashboard
+<img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_1.JPG">
+<img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_2.JPG">
+<img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_3.JPG">
+<img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_4.JPG">
+
+### Achitecture
+TODO
+
+### Roadmap
+
+1.	Give a nice name to the plugin. Ask the colleagues for suggestions. I named it Cucelastic plugin.
+2.	Give an icon to the plugin. I made an icon but need some editing.
+4.	Publish the plugin on Maven Cenral.
+5.	Write Blogs to let the world know and use it.
+6.	Discuss and take feedback for future improvement and enhancement.
