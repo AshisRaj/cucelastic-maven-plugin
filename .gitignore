@@ -3,8 +3,14 @@
 # Compiled class file
 *.class
 
-# Log file
-*.log
+# class path
+*.classpath
+
+# Project
+*.project
+
+# settings
+.settings
 
 # Package Files #
 *.jar
