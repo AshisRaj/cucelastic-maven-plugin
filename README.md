@@ -14,16 +14,16 @@ A Java developer at heart and learning the fact that the 2 of the reprting plugi
 With test report data in Elastic Search, I can have a unified dashboard on UI agnostic tools like Kibana/Grafana  for all tests with the possibility to filter and analyze the data, extend and share it across teams.
 
 ### Pros
-1.	Java/Maven solution - Java has been among top 3 choices in the world for BDD implementation. Hence the solution can easily be plugged in with the system.
-2.	UI agnostic Dashboard  - No static HTML web page(s), hence the control of creation and management of Dashboard fully lies into the hands of the end user using a tool like Kibana. The end users can select what they want to/not to see on their dashboard.
-3.	Continuous Integration - Can easily be integrated with Jenkins. 
-4.	Power of Elastic Search - enables the plugin as well as end user to get all the benefits of Elastic Search. 
-5.	Power of Kibana - enables the end user to apply filter and analyze the data, extend and share it across teams.
-6.	Handy Configurable options - The plugin user has set configuration options available to control like,
-a.	skip reading the Cucumber Test Report(JSON file(s)) and ask the plugin to exit(defaults to false).
-b.	change/overwrite the Hostname of Elastic Search Server (defaults to localhost).
-c.	change/overwrite sending the Feature, Scenario, Step, Tag specific JSON documents to Elastic Search(defaults to false).
-d.	change/overwrite the 'index' and 'document_type' for Feature, Scenario, Step, Tag specific documents for Elastic Search.
+1. **Java/Maven solution** - Java has been among top 3 choices in the world for BDD implementation. Hence the solution can easily be plugged in with the system.
+2. **UI agnostic Dashboard**  - No static HTML web page(s), hence the control of creation and management of Dashboard fully lies into the hands of the end user using a tool like Kibana. The end users can select what they want to/not to see on their dashboard.
+3. **Continuous Integration** - Can easily be integrated with Jenkins. 
+4. **Power of Elastic Search** - enables the plugin as well as end user to get all the benefits of Elastic Search. 
+5. **Power of Kibana** - enables the end user to apply filter and analyze the data, extend and share it across teams.
+6. **Handy Configurable options** - The plugin user has set configuration options available to control like,
+   - skip reading the Cucumber Test Report(JSON file(s)) and ask the plugin to exit(defaults to false).
+   - change/overwrite the Hostname of Elastic Search Server (defaults to localhost).
+   - change/overwrite sending the Feature, Scenario, Step, Tag specific JSON documents to Elastic Search(defaults to false).
+   - change/overwrite the 'index' and 'document_type' for Feature, Scenario, Step, Tag specific documents for Elastic Search.
 
 ### Cons
 1.	Details of failures like assertion failures/stacktrace (screenshots in case of selenium) not available. 
