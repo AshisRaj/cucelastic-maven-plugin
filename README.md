@@ -1,1 +1,1 @@
-# Real-time reporting of cucumber tests on Kibana dashboard
+# Real-time reporting of cucumber tests to Elastic Search
