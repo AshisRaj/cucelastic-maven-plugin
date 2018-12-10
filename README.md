@@ -6,9 +6,10 @@
 						 
 ### Journey and Idea
 Very recently, I started learning and doing hands-on on Cucumber in Java and wrote my first Cucumber+TestNG+Selenium Automation Test Framework. I used a couple of third party reporting plugins to generate detailed HTML reports website containing single and/or many web pages. Though I liked the reports and found them useful, yet I needed a better and unified overview of the results which is UI agnostic.
+
 With the clear requirement in mind, I did some research on internet and talk with colleagues around me. I came across the ELK (Elasticserach, Logstash, Kibana) solution but all 3 were quite new to me, though I installed all three on my machine and started exploring them. Very soon, I figured out that it would be quite a challenge and time consuming to learn and perform the desired result with Logstash and its various plugins.
 
-A Java developer at heart and learning the fact that the 2 of the plugins I mentioned above are using the JSON test result file(s) as input and writing the HTML files as output, I decided to go for the solution same way but change the output destination (Elastic Search not HTML pages).
+A Java developer at heart and learning the fact that the 2 of the reprting plugins I used and mentioned above are using the JSON test result file(s) as input and writing the HTML files as output, I decided to go for the solution same way but change the output destination (Elastic Search not HTML pages).
 
 With test report data in Elastic Search, I can have a unified dashboard on UI agnostic tools like Kibana/Grafana  for all tests with the possibility to filter and analyze the data, extend and share it across teams.
 
