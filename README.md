@@ -1,3 +1,5 @@
+<img align="left" width="200" height="150" src="icon/cucelastic_plugin_icon.JPG">
+
 # Real-time reporting of cucumber tests to Elastic Search
 
 ## Elasticsearch and Kibana for Cucumber Reports
