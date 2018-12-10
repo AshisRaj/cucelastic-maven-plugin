@@ -34,7 +34,7 @@ d.	change/overwrite the 'index' and 'document_type' for Feature, Scenario, Step,
 <img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_4.JPG">
 
 ### Achitecture
-TODO
+<img align="center" width="900" height="800" src="images/architecture.jpg">
 
 ### Roadmap
 
