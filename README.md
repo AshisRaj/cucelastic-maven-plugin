@@ -2,7 +2,7 @@
 
 # Real-time reporting of cucumber tests to Elastic Search
 
-## Elasticsearch and Kibana for Cucumber Reports
+## Elastic Search and Kibana for Cucumber Reports
 						 
 ### Journey and Idea
 Very recently, I started learning and doing hands-on on Cucumber in Java and wrote my first Cucumber+TestNG+Selenium Automation Test Framework. I used a couple of third party reporting plugins to generate detailed HTML reports website containing single and/or many web pages. Though I liked the reports and found them useful, yet I needed a better and unified overview of the results which is UI agnostic.
