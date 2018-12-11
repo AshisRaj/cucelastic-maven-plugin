@@ -29,6 +29,9 @@ With test report data in Elastic Search, I can have a unified dashboard on UI ag
 ### Cons
 1.	Details of failures like assertion failures/stacktrace (screenshots in case of selenium) not available. 
 
+### Settings and Usages
+[USAGE](USAGE.md)
+
 ### Kibana Dashboard
 <img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_1.JPG">
 <img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_2.JPG">
