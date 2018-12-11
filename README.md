@@ -20,7 +20,7 @@ With test report data in Elastic Search, I can have a unified dashboard on UI ag
 3. **Continuous Integration** - Can easily be integrated with Jenkins. 
 4. **Power of Elastic Search** - Enables the plugin as well as end user to get all the benefits of Elastic Search. 
 5. **Power of Kibana** - Enables the end user to apply filter and analyze the data, extend and share it across teams.
-6. **Handy Configurable options** - The plugin user has set configuration options available to control like,
+6. **Handy Configurable options** - The plugin user has set of configuration options available to control things like,
    - skip reading the Cucumber Test Report(JSON file(s)) and ask the plugin to exit(defaults to false).
    - change/overwrite the Hostname of Elastic Search Server (defaults to localhost).
    - change/overwrite sending the Feature, Scenario, Step, Tag specific JSON documents to Elastic Search(defaults to false).
