@@ -1,4 +1,4 @@
-<img align="left" width="200" height="150" src="icon/cucelastic_plugin_icon.JPG">
+<img align="left" width="200" height="150" src="icon/cucelastic_plugin_icon.jpeg">
 
 # Real-time reporting of cucumber tests to Elastic Search
 
