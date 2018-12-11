@@ -14,7 +14,7 @@ Being a Java developer at heart and learning the fact that the 2 of the reportin
 With test report data in Elastic Search, I can have a unified dashboard on UI agnostic tools like Kibana/Grafana for all tests with the possibility to filter and analyze the data, extend and share it across teams.
 
 ### Pros
-1. **Java/Maven solution** - Java has been among top 3 prefrred languages in the world for BDD implementation. Hence the solution can easily be plugged in with the system.
+1. **Java/Maven solution** - Java has been among top 3 preferred languages in the world for BDD implementation. Hence the solution can easily be plugged in with the system.
 2. **Plug and Play** - With cucumber test result data in Elastic Search, the user can easily plugin any tool/script (Kibana, Grafana, Shell, REST) and play around the test result data.
 3. **UI agnostic**  - No static HTML web page(s), hence the control of creation and management of Dashboard fully lies into the hands of the end user using a tool like Kibana. The end users can select what they want to/not to see on their dashboard.
 3. **Continuous Integration** - Can easily be integrated with Jenkins. 
