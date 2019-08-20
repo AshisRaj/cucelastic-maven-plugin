@@ -38,9 +38,6 @@ With test report data in Elastic Search, I can have a unified dashboard on UI ag
 <img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_3.JPG">
 <img align="center" width="900" height="300" src="dashboard/kibana/cucumber_elastic_search_kibana_dashboard_4.JPG">
 
-### Achitecture
-<img align="center" width="900" height="800" src="images/architecture.jpg">
-
 ### Roadmap
 
 1.	Give a nice name to the plugin. Ask the colleagues for suggestions. I named it Cucelastic plugin.
