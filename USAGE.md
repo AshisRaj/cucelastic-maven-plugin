@@ -1,11 +1,11 @@
-### Prerequisites
+## Prerequisites
 
-## Default Indexes to be created manually in Kibana before using the Plugin
+### Default Indexes to be created manually in Kibana before using the Plugin
 Note: The plugin will pick these indexes as defaults, hence no need to define them in the pom file.
-<img align="center" width="900" height="300" src="dashboard/kibana/Kibana_Indexes_To_Add.JPG">
-<img align="center" width="900" height="300" src="dashboard/kibana/Kibana_Index_Creation_Page.JPG">
+<img align="center" width="900" height="300" src="dashboard/kibana/Kibana_Indexes_To_Add.PNG">
+<img align="center" width="900" height="300" src="dashboard/kibana/Kibana_Index_Creation_Page.PNG">
 
-### Sample of plugin entry to go into your Cucumber project's pom file. 
+## Sample of plugin entry to go into your Cucumber project's pom file. 
 ```
 <plugin>
 	<groupId>com.araj.cucumber.elasticsearch</groupId>
