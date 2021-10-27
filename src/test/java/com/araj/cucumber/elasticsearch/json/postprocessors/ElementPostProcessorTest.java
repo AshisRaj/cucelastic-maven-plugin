@@ -6,8 +6,6 @@ import static org.mockito.Mockito.mock;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.activation.MimeType;
-
 import org.junit.Before;
 import org.junit.Test;
 

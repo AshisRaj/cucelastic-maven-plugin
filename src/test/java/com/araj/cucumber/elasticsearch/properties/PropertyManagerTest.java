@@ -43,6 +43,6 @@ public class PropertyManagerTest {
     @Test
     public void logFullPropertiesTest() {
         propertyManager.logProperties();
-        verify(logger, times(15)).info(anyString());
+        verify(logger, times(21)).info(anyString());
     }
 }

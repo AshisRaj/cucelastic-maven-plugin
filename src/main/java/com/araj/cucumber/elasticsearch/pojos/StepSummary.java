@@ -7,7 +7,7 @@ public class StepSummary {
     @JsonProperty("scenario_index")
     private int scenarioIndex;
 
-    @JsonProperty("scenarioName")
+    @JsonProperty("scenario_name")
     private String scenarioName;
 
     @JsonProperty("total_steps")
@@ -21,9 +21,6 @@ public class StepSummary {
     
     @JsonProperty("skipped_steps")
     private int skippedSteps;
-    
-    @JsonProperty("date")
-    private String date;
     
     public void setScenarioIndex(int scenarioIndex) {
         this.scenarioIndex = scenarioIndex;
@@ -47,10 +44,6 @@ public class StepSummary {
     
     public void setSkippedSteps(int skippedSteps) {
     	this.skippedSteps = skippedSteps;
-    }
-        
-    public void setDate(String date) {
-        this.date = date;
     }
 }
 

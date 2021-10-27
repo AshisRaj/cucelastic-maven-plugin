@@ -4,6 +4,7 @@
 
 package com.araj.cucumber.elasticsearch.utils;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +17,10 @@ import com.araj.cucumber.elasticsearch.constants.Status;
 import com.araj.cucumber.elasticsearch.exceptions.CucElasticPluginException;
 import com.araj.cucumber.elasticsearch.json.pojo.Element;
 import com.araj.cucumber.elasticsearch.json.pojo.Report;
+import com.araj.cucumber.elasticsearch.json.pojo.Step;
 import com.araj.cucumber.elasticsearch.json.pojo.Tag;
 import com.araj.cucumber.elasticsearch.logging.CucElasticPluginLogger;
-import com.araj.cucumber.elasticsearch.pojos.Feature;
-import com.araj.cucumber.elasticsearch.pojos.FeatureSummary;
-import com.araj.cucumber.elasticsearch.pojos.ResultCount;
-import com.araj.cucumber.elasticsearch.pojos.ResultSender;
-import com.araj.cucumber.elasticsearch.pojos.ScenarioSummary;
-import com.araj.cucumber.elasticsearch.pojos.StepSummary;
-import com.araj.cucumber.elasticsearch.pojos.TagSummary;
+import com.araj.cucumber.elasticsearch.pojos.*;
 import com.araj.cucumber.elasticsearch.pojos.collections.AllFeaturesCollection;
 import com.araj.cucumber.elasticsearch.pojos.collections.AllScenariosCollection;
 import com.araj.cucumber.elasticsearch.pojos.collections.AllTagsCollection;
@@ -118,6 +114,24 @@ public class CucElasticPluginReportGenerator {
 			+ " is disabled\n\tCheck in your pom file for setting of"
 			+ " configuration parameter 'sendTagSummaryToElasticSearch'.");
     	}
+		if("true".equalsIgnoreCase(propertyManager.getSendErrorSummaryToElasticSearch())) {
+			// Tag Summary docs
+			List<Object> errorSummaries =
+					generateErrorSummaryDocuments(allScenariosCollection);
+			logger.info("-----------------------------------------------------------");
+			logger.info("Sending the Error Summary documents to elastic search");
+			String url = String.format("http://%s/%s/%s",
+					propertyManager.getElasticSearchHostName(),
+					propertyManager.getErrorSummaryIndex(),
+					propertyManager.getErrorSummaryDocumentType());
+
+			resultSender.sendTOElasticSearch(errorSummaries, url);
+		}
+		else {
+			logger.info("Sending Error Summary documents to elastic search"
+					+ " is disabled\n\tCheck in your pom file for setting of"
+					+ " configuration parameter 'sendErrorSummaryToElasticSearch'.");
+		}
     }
 
       
@@ -203,7 +217,6 @@ public class CucElasticPluginReportGenerator {
     			stepSummary.setPassedSteps(element.getTotalNumberOfPassedSteps());
     			stepSummary.setFailedSteps(element.getTotalNumberOfFailedSteps());
     			stepSummary.setSkippedSteps(element.getTotalNumberOfSkippedSteps());
-    			stepSummary.setDate(LocalDateTime.now().toString());
     			stepSummaries.add(stepSummary);
 			}
         }
@@ -214,7 +227,7 @@ public class CucElasticPluginReportGenerator {
      * Generate Documents for tags.
      *
      * @param allScenariosCollection The {@link AllScenariosCollection}.
-     * @throws CluecumberException The {@link CucElasticPluginException}.
+     * @throws CucElasticPluginException The {@link CucElasticPluginException}.
      */
     private List<Object> generateTagSummaryDocuments(
     		final AllScenariosCollection allScenariosCollection) 
@@ -239,5 +252,36 @@ public class CucElasticPluginReportGenerator {
         }
         return tagSummaries;
     }
+
+	/**
+	 * Generate Documents for errors.
+	 *
+	 * @param allScenariosCollection The {@link AllScenariosCollection}.
+	 * @throws CucElasticPluginException The {@link CucElasticPluginException}.
+	 */
+	private List<Object> generateErrorSummaryDocuments(
+			final AllScenariosCollection allScenariosCollection
+	) throws CucElasticPluginException {
+		List<Object> errorSummaries = new ArrayList<>();
+
+		for(Report report : allScenariosCollection.getReports()) {
+			for(Element element : report.getElements()) {
+				ErrorSummary errorSummary = new ErrorSummary();
+				for (Step step:
+						element.getSteps()) {
+					if (step.getResult().getErrorMessage().length() != 0){
+						errorSummary.setErrorMessage(step.getResult().getErrorMessage());
+						errorSummary.setErrorStep(step.getName());
+					}
+				}
+				errorSummary.setSquadId(propertyManager.getSquadId());
+				errorSummary.setProjectName(propertyManager.getProjectName());
+				errorSummary.setScenarioName(element.getName());
+				errorSummary.setDate(LocalDateTime.now().toString());
+				errorSummary.setEnv(propertyManager.getEnv());
+			}
+		}
+		return errorSummaries;
+	}
 }
 

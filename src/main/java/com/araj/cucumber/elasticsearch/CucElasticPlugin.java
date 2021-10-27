@@ -50,6 +50,24 @@ public class CucElasticPlugin extends AbstractMojo {
     private String elasticSearchHostName = "";
 
     /**
+     * The squad ID for personal purpose.
+     */
+    @Parameter(property = "load.squadId", required = true)
+    private String squadId = "";
+
+    /**
+     * The env for personal purpose.
+     */
+    @Parameter(property = "load.env", required = true)
+    private String env = "";
+
+    /**
+     * The project name for personal purpose.
+     */
+    @Parameter(property = "load.projectName", required = true)
+    private String projectName = "";
+
+    /**
      * The Cucumber Feature summary index name for elastic search.
      */
     @Parameter(property = "load.featureSummaryIndex", defaultValue="feature_summary_index", required = true)
@@ -72,6 +90,12 @@ public class CucElasticPlugin extends AbstractMojo {
      */
     @Parameter(property = "load.tagSummaryIndex", defaultValue="tag_summary_index", required = true)
     private String tagSummaryIndex = "";
+
+    /**
+     * The Cucumber Error summary index name for elastic search.
+     */
+    @Parameter(property = "load.errorSummaryIndex", defaultValue="error_summary_index", required = true)
+    private String errorSummaryIndex = "";
     
     /**
      * The Cucumber Feature summary document type name for elastic search.
@@ -96,6 +120,12 @@ public class CucElasticPlugin extends AbstractMojo {
      */
     @Parameter(property = "load.tagSummaryDocumentType", defaultValue="tag_summary_document_type", required = true)
     private String tagSummaryDocumentType = "";
+
+    /**
+     * The Cucumber Error summary document type name for elastic search.
+     */
+    @Parameter(property = "load.errorSummaryDocumentType", defaultValue="error_summary_document_type", required = true)
+    private String errorSummaryDocumentType = "";
     
     /**
      * The flag to control sending Feature summary documents to elastic search.
@@ -120,6 +150,12 @@ public class CucElasticPlugin extends AbstractMojo {
      */
     @Parameter(property = "load.sendTagSummaryToElasticSearch", defaultValue="false", required = true)
     private String sendTagSummaryToElasticSearch = "";
+
+    /**
+     * The flag to control sending Error summary documents to elastic search.
+     */
+    @Parameter(property = "load.sendErrorSummaryToElasticSearch", defaultValue="false", required = true)
+    private String sendErrorSummaryToElasticSearch = "";
 
     /**
      * Skip Cucumber report generation.
@@ -169,10 +205,16 @@ public class CucElasticPlugin extends AbstractMojo {
         propertyManager.setStepSummaryDocumentType(stepSummaryDocumentType);
         propertyManager.setTagSummaryIndex(tagSummaryIndex);
         propertyManager.setTagSummaryDocumentType(tagSummaryDocumentType);
+        propertyManager.setErrorSummaryIndex(errorSummaryIndex);
+        propertyManager.setErrorSummaryDocumentType(errorSummaryDocumentType);
         propertyManager.setSendFeatureSummaryToElasticSearch(sendFeatureSummaryToElasticSearch);
         propertyManager.setSendScenarioSummaryToElasticSearch(sendScenarioSummaryToElasticSearch);
         propertyManager.setSendStepSummaryToElasticSearch(sendStepSummaryToElasticSearch);
         propertyManager.setSendTagSummaryToElasticSearch(sendTagSummaryToElasticSearch);
+        propertyManager.setSendErrorSummaryToElasticSearch(sendErrorSummaryToElasticSearch);
+        propertyManager.setProjectName(projectName);
+        propertyManager.setSquadId(squadId);
+        propertyManager.setEnv(env);
         
         propertyManager.validateSettings();
 
