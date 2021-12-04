@@ -96,6 +96,12 @@ public class CucElasticPlugin extends AbstractMojo {
      */
     @Parameter(property = "load.errorSummaryIndex", defaultValue="error_summary_index", required = true)
     private String errorSummaryIndex = "";
+
+    /**
+     * The Cucumber Error summary index name for elastic search.
+     */
+    @Parameter(property = "load.categoryIndex", defaultValue="category_index", required = true)
+    private String categoryIndex = "";
     
     /**
      * The Cucumber Feature summary document type name for elastic search.
@@ -126,6 +132,12 @@ public class CucElasticPlugin extends AbstractMojo {
      */
     @Parameter(property = "load.errorSummaryDocumentType", defaultValue="error_summary_document_type", required = true)
     private String errorSummaryDocumentType = "";
+
+    /**
+     * The Cucumber Error summary document type name for elastic search.
+     */
+    @Parameter(property = "load.categoryDocumentType", defaultValue="category_document_type", required = true)
+    private String categoryDocumentType = "";
     
     /**
      * The flag to control sending Feature summary documents to elastic search.
@@ -156,6 +168,12 @@ public class CucElasticPlugin extends AbstractMojo {
      */
     @Parameter(property = "load.sendErrorSummaryToElasticSearch", defaultValue="false", required = true)
     private String sendErrorSummaryToElasticSearch = "";
+
+    /**
+     * The flag to control sending Error summary documents to elastic search.
+     */
+    @Parameter(property = "load.sendCategoryToElasticSearch", defaultValue="false", required = true)
+    private String sendCategoryToElastichSearch = "";
 
     /**
      * Skip Cucumber report generation.
@@ -207,11 +225,14 @@ public class CucElasticPlugin extends AbstractMojo {
         propertyManager.setTagSummaryDocumentType(tagSummaryDocumentType);
         propertyManager.setErrorSummaryIndex(errorSummaryIndex);
         propertyManager.setErrorSummaryDocumentType(errorSummaryDocumentType);
+        propertyManager.setCategoryIndex(categoryIndex);
+        propertyManager.setCategoryDocumentType(categoryDocumentType);
         propertyManager.setSendFeatureSummaryToElasticSearch(sendFeatureSummaryToElasticSearch);
         propertyManager.setSendScenarioSummaryToElasticSearch(sendScenarioSummaryToElasticSearch);
         propertyManager.setSendStepSummaryToElasticSearch(sendStepSummaryToElasticSearch);
         propertyManager.setSendTagSummaryToElasticSearch(sendTagSummaryToElasticSearch);
         propertyManager.setSendErrorSummaryToElasticSearch(sendErrorSummaryToElasticSearch);
+        propertyManager.setSendCategoryToElasticSearch(sendCategoryToElastichSearch);
         propertyManager.setProjectName(projectName);
         propertyManager.setSquadId(squadId);
         propertyManager.setEnv(env);

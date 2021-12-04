@@ -56,6 +56,6 @@ public class ReportGeneratorTest {
 
         reportGenerator.generateAndSendReportDocumentsForElasticSearch(allScenariosPageCollection);
 
-        verify(cucElasticPluginLogger, times(5)).info(anyString());
+        verify(cucElasticPluginLogger, times(6)).info(anyString());
     }
 }

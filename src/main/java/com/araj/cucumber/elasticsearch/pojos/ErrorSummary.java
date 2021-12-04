@@ -4,25 +4,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ErrorSummary {
 
-  @JsonProperty("project_name")
+  @JsonProperty("projectName")
   private String projectName;
 
-  @JsonProperty("squad_id")
+  @JsonProperty("squadId")
   private String squadId;
 
-  @JsonProperty("scenario_name")
+  @JsonProperty("squadName")
+  private String squadName;
+
+  @JsonProperty("scenarioName")
   private String scenarioName;
 
-  @JsonProperty("error_name")
+  @JsonProperty("errorType")
   private String errorName;
 
-  @JsonProperty("error_message")
+  @JsonProperty("errorMessage")
   private String errorMessage;
 
-  @JsonProperty("error_step")
+  @JsonProperty("errorStep")
   private String errorStep;
 
-  @JsonProperty("date")
+  @JsonProperty("time")
   private String date;
 
   @JsonProperty("env")
@@ -54,7 +57,11 @@ public class ErrorSummary {
 
   public void setErrorMessage(String errorMessage){
     this.errorMessage = errorMessage;
-    int index = errorMessage.indexOf(":");
+    int index1 = errorMessage.indexOf(":");
+    int index2 = errorMessage.indexOf("\n");
+    int index3 = errorMessage.indexOf("\r");
+    int minIndex1 = Math.min(index1, index2);
+    int index = Math.min(minIndex1, index3);
     this.errorName = errorMessage.substring(0, index);
   }
 
@@ -84,5 +91,13 @@ public class ErrorSummary {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
+  }
+
+  public String getSquadName() {
+    return squadName;
+  }
+
+  public void setSquadName(String squadName) {
+    this.squadName = squadName;
   }
 }

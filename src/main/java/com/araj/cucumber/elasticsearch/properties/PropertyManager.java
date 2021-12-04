@@ -26,6 +26,8 @@ public class PropertyManager {
 
     private String errorSummaryIndex;
 
+    private String categoryIndex;
+
     private String featureSummaryDocumentType;
 
     private String scenarioSummaryDocumentType;
@@ -36,6 +38,8 @@ public class PropertyManager {
 
     private String errorSummaryDocumentType;
 
+    private String categoryDocumentType;
+
     private String sendFeatureSummaryToElasticSearch;
 
     private String sendScenarioSummaryToElasticSearch;
@@ -45,6 +49,8 @@ public class PropertyManager {
     private String sendTagSummaryToElasticSearch;
 
     private String sendErrorSummaryToElasticSearch;
+
+    private String sendCategoryToElasticSearch;
 
     private String projectName;
 
@@ -209,10 +215,34 @@ public class PropertyManager {
     this.env = env;
   }
 
+  public String getCategoryIndex() {
+    return categoryIndex;
+  }
+
+  public void setCategoryIndex(String categoryIndex) {
+    this.categoryIndex = categoryIndex;
+  }
+
+  public String getCategoryDocumentType() {
+    return categoryDocumentType;
+  }
+
+  public void setCategoryDocumentType(String categoryDocumentType) {
+    this.categoryDocumentType = categoryDocumentType;
+  }
+
+  public String getSendCategoryToElasticSearch() {
+    return sendCategoryToElasticSearch;
+  }
+
+  public void setSendCategoryToElasticSearch(String sendCategoryToElasticSearch) {
+    this.sendCategoryToElasticSearch = sendCategoryToElasticSearch;
+  }
+
   /**
      * Checks the pom settings for the plugin.
      *
-     * @throws CluecumberPluginException Thrown when a required setting
+     * @throws CucElasticPluginException Thrown when a required setting
      *                                   is not specified in the pom.
      */
     public void validateSettings() throws CucElasticPluginException {
@@ -232,6 +262,8 @@ public class PropertyManager {
             missingProperty = "tagsSummaryIndex";
         } else if (errorSummaryIndex == null || errorSummaryIndex.equals("")) {
           missingProperty = "errorSummaryIndex";
+        } else if (categoryIndex == null || categoryIndex.equals("")) {
+          missingProperty = "categoryIndex";
         } else if (featureSummaryDocumentType == null || featureSummaryDocumentType.equals("")) {
             missingProperty = "featureSummaryDocumentType";
         } else if (scenarioSummaryDocumentType == null || scenarioSummaryDocumentType.equals("")) {
@@ -242,6 +274,8 @@ public class PropertyManager {
             missingProperty = "tagSummaryDocumentType";
         } else if (errorSummaryDocumentType == null || errorSummaryDocumentType.equals("")) {
           missingProperty = "errorSummaryDocumentType";
+        } else if (categoryDocumentType == null || categoryDocumentType.equals("")) {
+          missingProperty = "categoryDocumentType";
         } else if (sendFeatureSummaryToElasticSearch == null || sendFeatureSummaryToElasticSearch.equals("")) {
             missingProperty = "sendFeatureSummaryToElasticSearch";
         } else if (sendScenarioSummaryToElasticSearch == null || sendScenarioSummaryToElasticSearch.equals("")) {
@@ -252,6 +286,8 @@ public class PropertyManager {
             missingProperty = "sendTagSummaryToElasticSearch";
         } else if (sendErrorSummaryToElasticSearch == null || sendErrorSummaryToElasticSearch.equals("")) {
           missingProperty = "sendErrorSummaryToElasticSearch";
+        } else if (sendCategoryToElasticSearch == null || sendCategoryToElasticSearch.equals("")) {
+          missingProperty = "sendCategoryToElasticSearch";
         } else if (squadId == null || squadId.equals("")) {
           missingProperty = "squadId";
         } else if (projectName == null || projectName.equals("")) {
@@ -273,16 +309,19 @@ public class PropertyManager {
         logger.info("- step Summary Index Name    : " + stepSummaryIndex);
         logger.info("- tag Summary Index Name    : " + tagSummaryIndex);
         logger.info("- error Summary Index Name    : " + errorSummaryIndex);
+        logger.info("- category Index Name    : " + categoryIndex);
         logger.info("- feature Summary Document Type Name    : " + featureSummaryDocumentType);
         logger.info("- scenario Summary Document Type Name    : " + scenarioSummaryDocumentType);
         logger.info("- step Summary Document Type Name    : " + stepSummaryDocumentType);
         logger.info("- tag Summary Document Type Name    : " + tagSummaryDocumentType);
         logger.info("- error Summary Document Type Name    : " + errorSummaryDocumentType);
+        logger.info("- category Document Type Name    : " + categoryDocumentType);
         logger.info("- send Feature Summary To Elastic Search    : " + sendFeatureSummaryToElasticSearch);
         logger.info("- send Scenario Summary To Elastic Search    : " + sendScenarioSummaryToElasticSearch);
         logger.info("- send Step Summary To Elastic Search    : " + sendStepSummaryToElasticSearch);
         logger.info("- send Tag Summary To Elastic Search    : " + sendTagSummaryToElasticSearch);
         logger.info("- send Error Summary To Elastic Search    : " + sendErrorSummaryToElasticSearch);
+        logger.info("- send Category To Elastic Search    : " + sendCategoryToElasticSearch);
         logger.info("- send Squad ID   : " + squadId);
         logger.info("- send Project Name    : " + projectName);
         logger.info("- send Environment    : " + env);
