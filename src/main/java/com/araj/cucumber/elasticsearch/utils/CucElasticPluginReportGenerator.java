@@ -6,6 +6,8 @@ package com.araj.cucumber.elasticsearch.utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.*;
 
 import javax.inject.Inject;
@@ -314,7 +316,8 @@ public class CucElasticPluginReportGenerator {
         }
         errorSummary.setProjectName(propertyManager.getProjectName());
         errorSummary.setScenarioName(element.getName());
-        errorSummary.setDate(LocalDateTime.now().toString());
+        OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
+        errorSummary.setDate(now.toString());
         errorSummary.setEnv(propertyManager.getEnv());
         if (errorSummary.getErrorMessage() != null && errorSummary.getErrorStep() != null) {
           errorSummaries.add(errorSummary);
