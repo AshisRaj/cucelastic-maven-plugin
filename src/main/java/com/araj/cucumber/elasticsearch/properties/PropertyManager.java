@@ -54,10 +54,6 @@ public class PropertyManager {
 
     private String projectName;
 
-    private String squadId;
-
-    private String env;
-
     @Inject
     public PropertyManager(final CucElasticPluginLogger logger) {
         this.logger = logger;
@@ -199,21 +195,9 @@ public class PropertyManager {
     this.sendErrorSummaryToElasticSearch = sendErrorSummaryToElasticSearch;
   }
 
-  public String getSquadId() { return squadId; }
-
-  public void setSquadId(String squadId) { this.squadId = squadId; }
-
   public String getProjectName() { return projectName; }
 
   public void setProjectName(String projectName) { this.projectName = projectName; }
-
-  public String getEnv() {
-    return env;
-  }
-
-  public void setEnv(String env) {
-    this.env = env;
-  }
 
   public String getCategoryIndex() {
     return categoryIndex;
@@ -288,12 +272,8 @@ public class PropertyManager {
           missingProperty = "sendErrorSummaryToElasticSearch";
         } else if (sendCategoryToElasticSearch == null || sendCategoryToElasticSearch.equals("")) {
           missingProperty = "sendCategoryToElasticSearch";
-        } else if (squadId == null || squadId.equals("")) {
-          missingProperty = "squadId";
         } else if (projectName == null || projectName.equals("")) {
           missingProperty = "projectName";
-        } else if (env == null || env.equals("")) {
-          missingProperty = "env";
         }
 
         if (missingProperty != null) {
@@ -322,9 +302,7 @@ public class PropertyManager {
         logger.info("- send Tag Summary To Elastic Search    : " + sendTagSummaryToElasticSearch);
         logger.info("- send Error Summary To Elastic Search    : " + sendErrorSummaryToElasticSearch);
         logger.info("- send Category To Elastic Search    : " + sendCategoryToElasticSearch);
-        logger.info("- send Squad ID   : " + squadId);
         logger.info("- send Project Name    : " + projectName);
-        logger.info("- send Environment    : " + env);
 
         logger.info("------------------------------------------------------------------------");
     }

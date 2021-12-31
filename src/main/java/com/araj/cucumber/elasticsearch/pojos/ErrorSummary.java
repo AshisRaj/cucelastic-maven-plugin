@@ -7,12 +7,6 @@ public class ErrorSummary {
   @JsonProperty("projectName")
   private String projectName;
 
-  @JsonProperty("squadId")
-  private String squadId;
-
-  @JsonProperty("squadName")
-  private String squadName;
-
   @JsonProperty("scenarioName")
   private String scenarioName;
 
@@ -28,9 +22,6 @@ public class ErrorSummary {
   @JsonProperty("time")
   private String date;
 
-  @JsonProperty("env")
-  private String env;
-
   public String getScenarioName() {
     return scenarioName;
   }
@@ -41,14 +32,6 @@ public class ErrorSummary {
 
   public String getDate() {
     return date;
-  }
-
-  public String getEnv() {
-    return env;
-  }
-
-  public void setEnv(String env) {
-    this.env = env;
   }
 
   public void setDate(String date) {
@@ -73,10 +56,6 @@ public class ErrorSummary {
     return this.errorName;
   }
 
-  public String getSquadId() { return squadId; }
-
-  public void setSquadId(String squadId) { this.squadId = squadId; }
-
   public String getErrorStep() {
     return errorStep;
   }
@@ -91,13 +70,5 @@ public class ErrorSummary {
 
   public void setProjectName(String projectName) {
     this.projectName = projectName;
-  }
-
-  public String getSquadName() {
-    return squadName;
-  }
-
-  public void setSquadName(String squadName) {
-    this.squadName = squadName;
   }
 }

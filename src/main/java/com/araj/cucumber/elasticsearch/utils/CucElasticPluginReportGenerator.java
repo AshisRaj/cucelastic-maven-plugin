@@ -300,25 +300,10 @@ public class CucElasticPluginReportGenerator {
             errorTypes.add(errorSummary.getErrorName());
           }
         }
-        errorSummary.setSquadId(propertyManager.getSquadId());
-        String url = "https://a515e70a-5b79-41da-bc13-ce2b4724d594.mock.pstmn.io/collab";
-        try {
-          HttpResponse<JsonNode> response = Unirest.get(url)
-              .header(CONTENT_TYPE, CONTENT_TYPE_VALUE)
-              .asJson();
-          Gson gson = new Gson();
-          JsonObject jsonObject = gson.fromJson(response.getBody().toString(), JsonObject.class);
-          errorSummary.setSquadName(jsonObject.get("data").getAsJsonArray()
-              .get(Integer.parseInt(errorSummary.getSquadId()))
-              .getAsJsonObject().get("collabName").getAsString());
-        } catch (Exception e) {
-          logger.info(e.getMessage());
-        }
         errorSummary.setProjectName(propertyManager.getProjectName());
         errorSummary.setScenarioName(element.getName());
         OffsetDateTime now = OffsetDateTime.now(ZoneOffset.UTC);
         errorSummary.setDate(now.toString());
-        errorSummary.setEnv(propertyManager.getEnv());
         if (errorSummary.getErrorMessage() != null && errorSummary.getErrorStep() != null) {
           errorSummaries.add(errorSummary);
         }

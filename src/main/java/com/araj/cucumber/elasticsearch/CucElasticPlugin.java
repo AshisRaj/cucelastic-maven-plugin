@@ -50,19 +50,7 @@ public class CucElasticPlugin extends AbstractMojo {
     private String elasticSearchHostName = "";
 
     /**
-     * The squad ID for personal purpose.
-     */
-    @Parameter(property = "load.squadId", required = true)
-    private String squadId = "";
-
-    /**
-     * The env for personal purpose.
-     */
-    @Parameter(property = "load.env", required = true)
-    private String env = "";
-
-    /**
-     * The project name for personal purpose.
+     * The project name.
      */
     @Parameter(property = "load.projectName", required = true)
     private String projectName = "";
@@ -234,8 +222,6 @@ public class CucElasticPlugin extends AbstractMojo {
         propertyManager.setSendErrorSummaryToElasticSearch(sendErrorSummaryToElasticSearch);
         propertyManager.setSendCategoryToElasticSearch(sendCategoryToElastichSearch);
         propertyManager.setProjectName(projectName);
-        propertyManager.setSquadId(squadId);
-        propertyManager.setEnv(env);
         
         propertyManager.validateSettings();
 
